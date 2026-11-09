@@ -1,6 +1,5 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Input;
 
 namespace Lesson2;
 
@@ -17,6 +16,9 @@ public partial class MainWindow : Window
         state = StateCalculator.Start;
 
         mathExpressionTextBlock.Text = exspression;
+
+        //1. string += string
+        //2. StringBuilder()
 
         //1. Переписать весь код с построением мат. выражение на StringBuilder()
         //2. Написать алгоритм разбора мат. выражения и решение его (без переполнения) https://leetcode.com/problems/basic-calculator-ii/description/

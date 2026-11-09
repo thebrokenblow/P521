@@ -2,4 +2,5 @@
   <Project Path="Equation/Equation.csproj" Id="0307bcd7-f8bf-491b-baef-c38a7ac3ee07" />
   <Project Path="Lesson1/Lesson1.csproj" />
   <Project Path="Lesson2/Lesson2.csproj" Id="0fb8be48-29fd-4f97-adb4-b863b43a5ded" />
+  <Project Path="Lesson3/Lesson3.csproj" Id="490f9b8f-b56c-4d4f-809b-49c416fccc97" />
 </Solution>
