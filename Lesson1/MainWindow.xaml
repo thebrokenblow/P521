@@ -7,42 +7,25 @@
         mc:Ignorable="d"
         Title="Главное окно" Height="450" Width="800">
     <Grid>
-        <StackPanel>
-            <TextBlock Name="mathExpressionTextBlock" Height="100"/>
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
-                </Grid.RowDefinitions>
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+            <StackPanel Height="30" Orientation="Horizontal">
+                <TextBlock Width="50" Text="Ответ: "/>
+                <TextBlock Width="130" Name="resultTextBlock" />
+            </StackPanel>
+            <StackPanel Height="30" Orientation="Horizontal">
+                <TextBlock Width="30" Text="a = "/>
+                <TextBox Name="aTextBox" Width="150" />
+            </StackPanel>
+            <StackPanel Height="30" Orientation="Horizontal">
+                <TextBlock Width="30" Text="b = "/>
+                <TextBox Name="bTextBox" Width="150" />
+            </StackPanel>
+            <StackPanel Height="30" Orientation="Horizontal">
+                <TextBlock Width="30" Text="c = "/>
+                <TextBox Name="cTextBox" Width="150" />
+            </StackPanel>
 
-                <Button Grid.Column="0" Grid.Row="0" Content="7" FontSize="45" Click="Button_Click_1"/>
-                <Button Grid.Column="1" Grid.Row="0" Content="8" FontSize="45" Click="Button_Click_2"/>
-                <Button Grid.Column="2" Grid.Row="0" Content="9" FontSize="45" Click="Button_Click_3"/>
-                <Button Grid.Column="3" Grid.Row="0" Content="/" FontSize="45" Click="Button_Click_4"/>
-
-                <Button Grid.Column="0" Grid.Row="1" Content="4" FontSize="45" Click="Button_Click_5"/>
-                <Button Grid.Column="1" Grid.Row="1" Content="5" FontSize="45" Click="Button_Click_6"/>
-                <Button Grid.Column="2" Grid.Row="1" Content="6" FontSize="45" Click="Button_Click_7"/>
-                <Button Grid.Column="3" Grid.Row="1" Content="*" FontSize="45" Click="Button_Click_8"/>
-
-                <Button Grid.Column="0" Grid.Row="2" Content="1" FontSize="45" Click="Button_Click_9"/>
-                <Button Grid.Column="1" Grid.Row="2" Content="2" FontSize="45" Click="Button_Click_10"/>
-                <Button Grid.Column="2" Grid.Row="2" Content="3" FontSize="45" Click="Button_Click_11"/>
-                <Button Grid.Column="3" Grid.Row="2" Content="-" FontSize="45" Click="Button_Click_12"/>
-
-                <Button Grid.Column="0" Grid.Row="3" Content="" FontSize="45"/>
-                <Button Grid.Column="1" Grid.Row="3" Content="0" FontSize="45" Click="Button_Click_13"/>
-                <Button Grid.Column="2" Grid.Row="3" Content="=" FontSize="45" Click="Button_Click_14"/>
-                <Button Grid.Column="3" Grid.Row="3" Content="+" FontSize="45" Click="Button_Click_15"/>
-            </Grid>
+            <Button Content="Решить" Height="30" Width="180" Click="Button_Click"/>
         </StackPanel>
     </Grid>
 </Window>
