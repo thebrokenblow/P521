@@ -1,4 +1,5 @@
 <Solution>
+  <Project Path="Equation/Equation.csproj" Id="0307bcd7-f8bf-491b-baef-c38a7ac3ee07" />
   <Project Path="Lesson1/Lesson1.csproj" />
   <Project Path="Lesson2/Lesson2.csproj" Id="0fb8be48-29fd-4f97-adb4-b863b43a5ded" />
 </Solution>

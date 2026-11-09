@@ -1,7 +1,8 @@
-﻿using System.Windows;
+﻿using Equation;
+using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Media;
 using System.Windows.Input;
+using System.Windows.Media;
 
 namespace Lesson1;
 
@@ -48,46 +49,8 @@ public partial class MainWindow : Window
             return;
         }
 
-        if (a == 0)
-        {
-            if (b == 0)
-            {
-                if (c == 0)
-                {
-                    resultTextBlock.Text = "Бесконечное число корней";
-                    return;
-                }
-                else
-                {
-                    resultTextBlock.Text = "Нет решений";
-                    return;
-                }
-            }
-            else
-            {
-                var x = -c / b;
-                resultTextBlock.Text = $"x = {x}";
-                return;
-            }
-        }
+        //Мобильные / Настольные (only windows, для всего), web приложения, games
 
-        var D = b * b - 4 * a * c;
-
-        if (D > 0)
-        {
-            var x1 = (-b + Math.Sqrt(D)) / (2 * a);
-            var x2 = (-b - Math.Sqrt(D)) / (2 * a);
-
-            resultTextBlock.Text = $"x1 = {x1}, x2 = {x2}";
-        }
-        else if (D == 0)
-        {
-            var x = -b / (2 * a);
-            resultTextBlock.Text = $"x = {x}";
-        }
-        else
-        {
-            resultTextBlock.Text = "нет корней x > R";
-        }
+        resultTextBlock.Text = SquareEquation.Solve(a, b, c);
     }
 }
