@@ -6,25 +6,43 @@
         xmlns:local="clr-namespace:Lesson3"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
+    <StackPanel>
         <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Width="350">
+            
             <StackPanel Orientation="Horizontal">
                 <TextBlock Width="100" Height="30" Text="Имя"/>
                 <TextBox Name="FirstName" Height="30" Width="150"/>
             </StackPanel>
+            
             <StackPanel Orientation="Horizontal">
                 <TextBlock Width="100" Height="30" Text="Фамилия"/>
                 <TextBox Name="LastName" Height="30" Width="150"/>
             </StackPanel>
+            
             <StackPanel Orientation="Horizontal">
                 <TextBlock Width="100" Height="30" Text="Отчество"/>
                 <TextBox Name="MiddleName" Height="30" Width="150"/>
             </StackPanel>
+            
             <StackPanel>
                 <CheckBox Name="IsSubscribeOnNotification" Content="Подписываюсь на групповую рассылку" />
                 <CheckBox Name="IsAgreementForPersonalData" Content="Соглаcен на обработку персональных данных" IsChecked="True" />
             </StackPanel>
+
+            <TextBlock Text="Пол:"/>
+            <StackPanel>
+                <RadioButton Name="GenderMale" GroupName="Gender" Content="М"/>
+                <RadioButton Name="GenderFemale" GroupName="Gender" Content="Ж"/>
+            </StackPanel>
+
+            <TextBlock Text="Являетесь ли гражданином РФ?"/>
+
+            <StackPanel>
+                <RadioButton Name="NationalityRus" GroupName="Nationality" Content="Да"/>
+                <RadioButton Name="NationalityNotRus" GroupName="Nationality" Content="Нет"/>
+            </StackPanel>
+
             <Button Click="Button_Save_Data" Content="Сохранить" Height="30"/>
         </StackPanel>
-    </Grid>
+    </StackPanel>
 </Window>

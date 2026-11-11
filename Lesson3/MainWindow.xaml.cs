@@ -1,5 +1,6 @@
 ﻿using System.IO;
 using System.Text;
+using System.Text.Json;
 using System.Windows;
 
 namespace Lesson3
@@ -19,28 +20,26 @@ namespace Lesson3
 
             if (personData.Length > 0)
             {
-                var personDataElements = personData.Split(["FirstName:", "LastName:", "MiddleName:", "IsSubscribeOnNotification:", ","], StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries).ToList();
+                var personalDataObj = JsonSerializer.Deserialize<PersonalData>(personData);
 
-                if (personDataElements.Count == 4)
-                {
-                    var personalData = new PersonalData
-                    {
-                        FirstName = personDataElements[0],
-                        LastName = personDataElements[1],
-                        MiddleName = personDataElements[2],
-                        IsSubscribeOnNotification = bool.Parse(personDataElements[3]),
-                    };
-
-                    FirstName.Text = personalData.FirstName;
-                    LastName.Text = personalData.LastName;
-                    MiddleName.Text = personalData.MiddleName;
-                    IsSubscribeOnNotification.IsChecked = personalData.IsSubscribeOnNotification;
-                }
+                FirstName.Text = personalDataObj.FirstName;
+                LastName.Text = personalDataObj.LastName;
+                MiddleName.Text = personalDataObj.MiddleName;
             }
         }
 
         private void Button_Save_Data(object sender, RoutedEventArgs e)
         {
+            if (GenderMale.IsChecked.Value == false && GenderFemale.IsChecked.Value == false)
+            {
+                MessageBox.Show("Необходимо выбрать пол");
+            }
+
+            if (NationalityRus.IsChecked.Value == false && NationalityNotRus.IsChecked.Value == false)
+            {
+                MessageBox.Show("Необходимо выбрать тип гражданства");
+            }
+
             if (IsAgreementForPersonalData.IsChecked.HasValue && IsAgreementForPersonalData.IsChecked.Value)
             {
                 var personalData = new PersonalData
@@ -51,7 +50,9 @@ namespace Lesson3
                     IsSubscribeOnNotification = IsSubscribeOnNotification.IsChecked ?? IsSubscribeOnNotification.IsChecked!.Value
                 };
 
-                File.AppendAllText("C:\\Users\\artem\\Documents\\data.txt", personalData.ToString(), Encoding.UTF8);
+                string jsonString = JsonSerializer.Serialize(personalData);
+
+                File.AppendAllText("C:\\Users\\artem\\Documents\\data.txt", jsonString, Encoding.UTF8);
             }
             else
             {
