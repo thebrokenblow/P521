@@ -13,18 +13,21 @@
         </Grid.RowDefinitions>
         <StackPanel Orientation="Horizontal">
             <Label Content="Поиск"/>
-            <TextBox Width="400"/>
+            <TextBox Name="TextBoxSerchString" Width="400"/>
             <ComboBox Name="countriesComboBox" SelectionChanged="countriesComboBox_SelectionChanged" Height="30" Width="150" />
             <Button Content="Поиск.." Click="Button_Search"/>
         </StackPanel>
 
         <ListBox Name="ListBoxProducts" Grid.Row="1">
-            <DataTemplate>
-                <StackPanel>
-                    <TextBlock Text="Some text"/>
-                    <TextBlock Text="Some text"/>
-                </StackPanel>
-            </DataTemplate>
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <TextBlock Text="{Binding Name}"/>
+                        <TextBlock Text="{Binding Description}"/>
+                        <TextBlock Text="{Binding Price}"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
         </ListBox>
     </Grid>
 </Window>
