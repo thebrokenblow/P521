@@ -10,24 +10,66 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="30"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="200"/>
         </Grid.RowDefinitions>
         <StackPanel Orientation="Horizontal">
             <Label Content="Поиск"/>
-            <TextBox Name="TextBoxSerchString" Width="400"/>
-            <ComboBox Name="countriesComboBox" SelectionChanged="countriesComboBox_SelectionChanged" Height="30" Width="150" />
-            <Button Content="Поиск.." Click="Button_Search"/>
+            <TextBox Name="TextBoxSerchString" TextChanged="TextBoxSerchString_TextChanged" Width="400"/>
+            <ComboBox Name="ComboBoxCategories" SelectionChanged="ComboBoxCategories_SelectionChanged" Height="30" Width="150" />
         </StackPanel>
 
-        <ListBox Name="ListBoxProducts" Grid.Row="1">
+        <ListBox SelectionChanged="ListBoxProducts_SelectionChanged" Name="ListBoxProducts" Grid.Row="1">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel>
                         <TextBlock Text="{Binding Name}"/>
                         <TextBlock Text="{Binding Description}"/>
                         <TextBlock Text="{Binding Price}"/>
+                        <Button Content="Удалить" Click="ButtonDelete_Click" CommandParameter="{Binding}"/>
                     </StackPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
+        <StackPanel Grid.Row="2" Orientation="Horizontal">
+            <StackPanel Orientation="Vertical">
+                <StackPanel Orientation="Horizontal" Height="30" Width="250">
+                    <Label Content="Название: " Width="100"/>
+                    <TextBox Name="TextBoxNameProduct" Width="150"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Height="30" Width="250">
+                    <Label Content="Описание: " Width="100"/>
+                    <TextBox Name="TextBoxDescriptionProduct" Width="150"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Height="30" Width="250">
+                    <Label Content="Цена: " Width="100"/>
+                    <TextBox Name="TextBoxPriceProduct" Width="150"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Height="30" Width="250">
+                    <Label Content="Категория: " Width="100"/>
+                    <ComboBox Name="ComboBoxCategoriesAdd" Width="150"/>
+                </StackPanel>
+                <Button Content="Добавить" Click="ButtonAddProduct_Click" Width="250"/>
+            </StackPanel>
+            <StackPanel Visibility="Hidden" Name="UpdatingForm" Grid.Row="2" Margin="40 0 0 0" Orientation="Vertical">
+                <StackPanel Orientation="Horizontal" Height="30" Width="250">
+                    <Label Content="Название: " Width="100"/>
+                    <TextBox Name="TextBoxUpdateNameProduct" Width="150"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Height="30" Width="250">
+                    <Label Content="Описание: " Width="100"/>
+                    <TextBox Name="TextBoxUpdateDescriptionProduct" Width="150"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Height="30" Width="250">
+                    <Label Content="Цена: " Width="100"/>
+                    <TextBox Name="TextBoxUpdatePriceProduct" Width="150"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Height="30" Width="250">
+                    <Label Content="Категория: " Width="100"/>
+                    <ComboBox Name="ComboBoxCategoriesUpdate" Width="150"/>
+                </StackPanel>
+                <Button Content="Редактировать" Click="ButtonUpdateProduct_Click" Width="250"/>
+                <Button Content="Скрыть" Click="ButtonHiddenUpdateProduct_Click" Width="250"/>
+            </StackPanel>
+        </StackPanel>
     </Grid>
 </Window>
