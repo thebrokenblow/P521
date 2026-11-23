@@ -7,6 +7,17 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <DataGrid Name="DataGridPets"/>
+        <DataGrid IsReadOnly="True"
+            CanUserAddRows="False"
+            CanUserDeleteRows="False"
+            CanUserReorderColumns="False"
+ Name="DataGridPets" 
+                  AutoGenerateColumns="False" >
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Имя" Binding="{Binding Name}" Width="90"  />
+                <DataGridTextColumn Header="Описание" Binding="{Binding Description}" Width="80" />
+                <DataGridTextColumn Header="Возраст" Binding="{Binding Age}" Width="50" />
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </Window>
