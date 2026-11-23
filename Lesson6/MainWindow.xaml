@@ -21,11 +21,17 @@
         <ListBox SelectionChanged="ListBoxProducts_SelectionChanged" Name="ListBoxProducts" Grid.Row="1">
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <StackPanel>
-                        <TextBlock Text="{Binding Name}"/>
-                        <TextBlock Text="{Binding Description}"/>
-                        <TextBlock Text="{Binding Price}"/>
-                        <Button Content="Удалить" Click="ButtonDelete_Click" CommandParameter="{Binding}"/>
+                    <StackPanel Orientation="Horizontal">
+                        <Image 
+                            Source="https://i.pinimg.com/736x/97/6e/3d/976e3ddff4cf700b1449f262cf15865f.jpg" 
+                            Width="160" 
+                            Height="160" />
+                        <StackPanel>
+                            <TextBlock Text="{Binding Name}"/>
+                            <TextBlock Text="{Binding Description}"/>
+                            <TextBlock Text="{Binding Price}"/>
+                            <Button Content="Удалить" Click="ButtonDelete_Click" CommandParameter="{Binding}"/>
+                        </StackPanel>
                     </StackPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>
